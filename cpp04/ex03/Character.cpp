@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 16:04:31 by jhii              #+#    #+#             */
-/*   Updated: 2022/08/03 16:32:53 by jhii             ###   ########.fr       */
+/*   Updated: 2022/08/03 21:01:53 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,17 @@ Character::~Character(void)
 Character	&Character::operator=(Character const &ref)
 {
 	this->_name = ref._name;
-	this->_unequiped = ref._unequiped->clone();
+	if (ref._unequiped)
+		this->_unequiped = ref._unequiped->clone();
+	else
+		this->_unequiped = NULL;
 	for (int i = 0; i < 4; ++i)
-		this->_inventory[i] = ref._inventory[i]->clone();
+	{
+		if (ref._inventory[i])
+			this->_inventory[i] = ref._inventory[i]->clone();
+		else
+			this->_inventory[i] = NULL;
+	}
 	return (*this);
 }
 

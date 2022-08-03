@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 21:11:17 by jhii              #+#    #+#             */
-/*   Updated: 2022/08/03 16:20:21 by jhii             ###   ########.fr       */
+/*   Updated: 2022/08/03 21:02:39 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,12 @@ MateriaSource::~MateriaSource(void)
 MateriaSource	&MateriaSource::operator=(MateriaSource const &ref)
 {
 	for (int i = 0; i < 4; ++i)
-		this->_materia[i] = ref._materia[i]->clone();
+	{
+		if (ref._materia[i])
+			this->_materia[i] = ref._materia[i]->clone();
+		else
+			this->_materia[i] = NULL;
+	}
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 21:11:17 by jhii              #+#    #+#             */
-/*   Updated: 2022/08/03 14:58:42 by jhii             ###   ########.fr       */
+/*   Updated: 2022/08/03 16:20:21 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,19 @@ AMateria	*MateriaSource::createMateria(std::string const &type)
 {
 	for (int i = 0; i < 4; ++i)
 	{
-		if (this->_materia[i]->getType() == type)
+		if (this->_materia[i])
 		{
-			std::cout << CYAN << "MateriaSource" << RESET;
-			std::cout << BLUE << ": Created " << type << RESET;
-			std::cout << BLUE << " Materia" << RESET << std::endl;
-			return (this->_materia[i]->clone());
+			if (this->_materia[i]->getType() == type)
+			{
+				std::cout << CYAN << "MateriaSource" << RESET;
+				std::cout << BLUE << ": Created " << type << RESET;
+				std::cout << BLUE << " Materia" << RESET << std::endl;
+				return (this->_materia[i]->clone());
+			}
 		}
 	}
 	std::cout << CYAN << "MateriaSource" << RESET;
 	std::cout << BLUE << ": Unknown " << type << RESET;
 	std::cout << BLUE << " Materia" << RESET << std::endl;
-	return (0);
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:45:19 by jhii              #+#    #+#             */
-/*   Updated: 2022/08/02 15:44:55 by jhii             ###   ########.fr       */
+/*   Updated: 2022/08/03 15:47:35 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,18 @@ void	AMateria::use(ICharacter &target)
 {
 	if (this->_type == "ice")
 	{
-		std::cout << CYAN << "* shoots an ice bolt at " << RESET;
+		std::cout << BLUE << "* shoots an ice bolt at " << RESET;
 		std::cout << CYAN << target.getName() << RESET;
-		std::cout << CYAN << " *" << RESET << std::endl;
+		std::cout << BLUE << " *" << RESET << std::endl;
 	}
 	else if (this->_type == "cure")
 	{
-		std::cout << CYAN << "* heals " << RESET;
+		std::cout << BLUE << "* heals " << RESET;
 		std::cout << CYAN << target.getName() << RESET;
-		std::cout << CYAN << "'s wounds *" << RESET << std::endl;
+		std::cout << BLUE << "'s wounds *" << RESET << std::endl;
 	}
 	else
-		std::cout << CYAN << "* Undefined AMateria *" << RESET;
+		std::cout << BLUE << "* Undefined AMateria *" << RESET;
 }
 
 std::ostream	&operator<<(std::ostream &output, const AMateria &ref)

@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 21:57:30 by jhii              #+#    #+#             */
-/*   Updated: 2022/08/03 14:59:15 by jhii             ###   ########.fr       */
+/*   Updated: 2022/08/03 16:21:58 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,72 @@
 #include "Ice.hpp"
 #include "Cure.hpp"
 
+void	testCharacter(void)
+{
+	IMateriaSource	*src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+
+	ICharacter	*kevin = new Character("kevin");
+	ICharacter	*karen = new Character("karen");
+	AMateria	*tmp;
+
+	tmp = src->createMateria("ice");
+	kevin->equip(tmp);
+	delete (tmp);
+	tmp = src->createMateria("fire");
+	if (tmp)
+	{
+		kevin->equip(tmp);
+		delete (tmp);
+	}
+
+	kevin->use(0, *karen);
+	kevin->use(1, *karen);
+	karen->use(0, *kevin);
+	karen->use(1, *kevin);
+
+	kevin->unequip(1);
+
+	delete (kevin);
+	delete (karen);
+	delete (src);
+}
+
+void	testMateria(void)
+{
+	IMateriaSource	*src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	src->learnMateria(new Ice());
+
+	ICharacter	*kevin = new Character("kevin");
+	ICharacter	*karen = new Character("karen");
+	AMateria	*tmp;
+
+	tmp = src->createMateria("ice");
+	kevin->equip(tmp);
+	delete (tmp);
+	tmp = src->createMateria("cure");
+	kevin->equip(tmp);
+	delete (tmp);
+	tmp = src->createMateria("fire");
+	if (tmp)
+	{
+		kevin->equip(tmp);
+		delete (tmp);
+	}
+
+	kevin->use(0, *karen);
+	kevin->use(1, *karen);
+
+	delete (kevin);
+	delete (karen);
+	delete (src);
+}
+
 void	testPdf(void)
 {
 	IMateriaSource	*src = new MateriaSource();
@@ -23,6 +89,7 @@ void	testPdf(void)
 	src->learnMateria(new Cure());
 
 	ICharacter	*me = new Character("me");
+	ICharacter	*bob = new Character("bob");
 	AMateria	*tmp;
 
 	tmp = src->createMateria("ice");
@@ -32,7 +99,6 @@ void	testPdf(void)
 	me->equip(tmp);
 	delete (tmp);
 
-	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);
 	me->use(1, *bob);
 

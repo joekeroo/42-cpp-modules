@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:46:26 by jhii              #+#    #+#             */
-/*   Updated: 2022/08/02 21:58:25 by jhii             ###   ########.fr       */
+/*   Updated: 2022/08/03 15:53:42 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 
 # include <iostream>
 
+void	testCharacter(void);
+void	testMateria(void);
 void	testPdf(void);
 
 #endif

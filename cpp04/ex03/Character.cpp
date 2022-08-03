@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 16:04:31 by jhii              #+#    #+#             */
-/*   Updated: 2022/08/02 22:00:09 by jhii             ###   ########.fr       */
+/*   Updated: 2022/08/03 16:32:53 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	Character::equip(AMateria *m)
 	else
 	{
 		std::cout << CYAN << this->_name << RESET;
-		std::cout << BLUE << ": Inventory full" << RESET << std::endl;
+		std::cout << BLUE << ": equip: Inventory full" << RESET << std::endl;
 	}
 }
 
@@ -104,7 +104,7 @@ void	Character::unequip(int idx)
 		else
 		{
 			std::cout << CYAN << this->_name << RESET;
-			std::cout << BLUE << ": Inventory slot " << RESET;
+			std::cout << BLUE << ": unequip: Inventory slot " << RESET;
 			std::cout << BLUE << idx << RESET;
 			std::cout << BLUE << " is empty" << RESET << std::endl;
 		}
@@ -112,7 +112,7 @@ void	Character::unequip(int idx)
 	else
 	{
 		std::cout << CYAN << this->_name << RESET;
-		std::cout << BLUE << ": Index out of bounds" << RESET << std::endl;
+		std::cout << BLUE << ": unequip: Index out of bounds" << RESET << std::endl;
 	}
 }
 
@@ -121,11 +121,15 @@ void	Character::use(int idx, ICharacter &target)
 	if (idx < 4)
 	{
 		if (this->_inventory[idx])
+		{
+			std::cout << CYAN << this->_name << RESET;
+			std::cout << BLUE << ": " << RESET;
 			this->_inventory[idx]->use(target);
+		}
 		else
 		{
 			std::cout << CYAN << this->_name << RESET;
-			std::cout << BLUE << ": Inventory slot " << RESET;
+			std::cout << BLUE << ": use: Inventory slot " << RESET;
 			std::cout << BLUE << idx << RESET;
 			std::cout << BLUE << " is empty" << RESET << std::endl;
 		}
@@ -133,6 +137,6 @@ void	Character::use(int idx, ICharacter &target)
 	else
 	{
 		std::cout << CYAN << this->_name << RESET;
-		std::cout << BLUE << ": Index out of bounds" << RESET << std::endl;
+		std::cout << BLUE << ": use: Index out of bounds" << RESET << std::endl;
 	}
 }

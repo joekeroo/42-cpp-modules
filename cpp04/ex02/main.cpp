@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:16:19 by jhii              #+#    #+#             */
-/*   Updated: 2022/08/02 14:36:17 by jhii             ###   ########.fr       */
+/*   Updated: 2022/08/03 15:00:09 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ int	main(void)
 	testDog();
 	std::cout << std::endl;
 	testPdf();
+	system("leaks animal");
 	return (0);
 }

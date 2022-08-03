@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 21:11:17 by jhii              #+#    #+#             */
-/*   Updated: 2022/08/02 21:53:14 by jhii             ###   ########.fr       */
+/*   Updated: 2022/08/03 14:58:42 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	MateriaSource::learnMateria(AMateria *materia)
 		std::cout << CYAN << "MateriaSource" << RESET;
 		std::cout << BLUE << ": No materia slots available" << RESET << std::endl;
 	}
+	delete (materia);
 }
 
 AMateria	*MateriaSource::createMateria(std::string const &type)

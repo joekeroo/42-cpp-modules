@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 21:57:30 by jhii              #+#    #+#             */
-/*   Updated: 2022/08/02 21:58:16 by jhii             ###   ########.fr       */
+/*   Updated: 2022/08/03 14:59:15 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,10 @@ void	testPdf(void)
 
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
+	delete (tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
+	delete (tmp);
 
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);

@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:16:19 by jhii              #+#    #+#             */
-/*   Updated: 2022/07/26 18:41:52 by jhii             ###   ########.fr       */
+/*   Updated: 2022/08/03 15:01:17 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,6 @@ int	main(void)
 	testWrongCat();
 	std::cout << std::endl;
 	testPdf();
+	system("leaks animal");
 	return (0);
 }

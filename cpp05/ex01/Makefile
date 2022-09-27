@@ -16,7 +16,7 @@ ${NAME}: ${OBJ} $(MAIN)
 %.o: %.cpp
 	@${CXX} ${CXXFLAGS} -c $< -o $@
 
-test: fclean all
+test: re
 	./bureaucrat
 
 clean:

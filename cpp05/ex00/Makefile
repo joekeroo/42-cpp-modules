@@ -16,6 +16,9 @@ ${NAME}: ${OBJ} $(MAIN)
 %.o: %.cpp
 	@${CXX} ${CXXFLAGS} -c $< -o $@
 
+test: re
+	./bureaucrat
+
 clean:
 	@${RM} ${OBJ}
 

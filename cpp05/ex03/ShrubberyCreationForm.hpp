@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 14:54:40 by jhii              #+#    #+#             */
-/*   Updated: 2022/09/27 17:41:12 by jhii             ###   ########.fr       */
+/*   Updated: 2022/09/27 17:26:58 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "AForm.hpp"
 # include "Bureaucrat.hpp"
 
-class	AForm;
+class	Form;
 class	Bureaucrat;
 
 // private attributes must start with an underscore (_)

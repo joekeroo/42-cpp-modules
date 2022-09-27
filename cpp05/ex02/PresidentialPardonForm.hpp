@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 14:54:45 by jhii              #+#    #+#             */
-/*   Updated: 2022/09/26 18:19:41 by jhii             ###   ########.fr       */
+/*   Updated: 2022/09/27 17:41:07 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 # include "AForm.hpp"
 # include "Bureaucrat.hpp"
 
-class	Form;
+class	AForm;
 class	Bureaucrat;
 
 // private attributes must start with an underscore (_)
-class	PresidentialPardonForm: public Form
+class	PresidentialPardonForm: public AForm
 {
 	private:
 		std::string	_target;

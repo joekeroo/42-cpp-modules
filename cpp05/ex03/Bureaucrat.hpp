@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 15:01:00 by jhii              #+#    #+#             */
-/*   Updated: 2022/09/27 17:41:05 by jhii             ###   ########.fr       */
+/*   Updated: 2022/09/27 17:28:07 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class	Bureaucrat
 		int					_grade;
 
 		class	GradeTooHighException: public std::exception
-		{ virtual const char	*what(void) const throw(); }; 
+		{ virtual const char	*what(void) const throw(); };
 		class	GradeTooLowException: public std::exception
 		{ virtual const char	*what(void) const throw(); };
 

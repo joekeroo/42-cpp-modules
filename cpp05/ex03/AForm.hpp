@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 16:39:00 by jhii              #+#    #+#             */
-/*   Updated: 2022/09/27 17:41:02 by jhii             ###   ########.fr       */
+/*   Updated: 2022/09/27 17:41:24 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class	AForm
 	public:
 		AForm(std::string const &, int const, int const);
 		AForm(AForm const &);
-		~AForm(void);
+		virtual	~AForm(void);
 
 		AForm	&operator=(AForm const &);
 

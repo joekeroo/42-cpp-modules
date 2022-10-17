@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:07:13 by jhii              #+#    #+#             */
-/*   Updated: 2022/09/30 15:41:42 by jhii             ###   ########.fr       */
+/*   Updated: 2022/10/17 19:41:02 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 void	executeConvert(char *argv)
 {
-	std::string	input(argv);
-	Convert		conv(input);
+	Convert		conv1(argv);
 
-	conv.convert();
-	std::cout << conv;
+	conv1.convert();
+	std::cout << conv1;
 }

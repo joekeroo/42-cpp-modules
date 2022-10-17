@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 11:08:23 by jhii              #+#    #+#             */
-/*   Updated: 2022/09/30 15:34:30 by jhii             ###   ########.fr       */
+/*   Updated: 2022/10/17 16:22:42 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@
 # define CYAN		"\033[36m"
 # define WHITE		"\033[37m"
 
+# include <sstream>
 # include <iostream>
+# include <iomanip>
 
 void	executeConvert(char *argv);
 

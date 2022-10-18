@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 15:00:55 by jhii              #+#    #+#             */
-/*   Updated: 2022/10/17 20:20:29 by jhii             ###   ########.fr       */
+/*   Updated: 2022/10/18 12:13:43 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,8 @@ bool	Convert::checkInput(void)
 	if (str == "nan" || str == "nanf" || str == "inf" || str == "inff" ||
 		str == "+inf" || str == "+inff" || str == "-inf" || str == "-inff")
 		return (true);
+	if (this->_input[0] != '+' || this->_input[0] != '-')
+		i++;
 	while (this->_input[i])
 	{
 		if (!isdigit(this->_input[i]) && this->_input[i] != '.' && this->_input[i] != 'f')

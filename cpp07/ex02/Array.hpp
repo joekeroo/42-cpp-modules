@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/19 15:25:06 by jhii              #+#    #+#             */
-/*   Updated: 2022/10/19 16:56:33 by jhii             ###   ########.fr       */
+/*   Created: 2022/10/19 16:56:16 by jhii              #+#    #+#             */
+/*   Updated: 2022/10/19 16:56:18 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-# define ITER_HPP
+#ifndef ARRAY_HPP
+# define ARRAY_HPP
 
 # define RESET		"\033[0m"
 # define BLACK		"\033[30m"
@@ -25,25 +25,18 @@
 
 # include <iostream>
 
-template <typename T> void print(T &x)
+template <class T> class Array
 {
-	std::cout << x << std::endl;
-}
+	private:
+		T	*_arr;
 
-template <typename T> void add(T &x)
-{
-	x++;
-}
+	public:
+		Array(void): _arr(NULL) {};
+		Array(unsigned int n) { this->_arr = new T[n]; };
+		Array(Array const &);
+		~Array(void);
 
-template <typename T> void minus(T &x)
-{
-	x--;
-}
-
-template <typename T> void iter(T x[], size_t size, void (*f)(T &))
-{
-	for (size_t i = 0; i < size; ++i)
-		f(x[i]);
-}
+		Array	&operator=(Array const &);
+};
 
 #endif

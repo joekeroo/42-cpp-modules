@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:25:06 by jhii              #+#    #+#             */
-/*   Updated: 2022/10/19 15:50:15 by jhii             ###   ########.fr       */
+/*   Updated: 2022/10/19 16:23:20 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,32 +25,25 @@
 
 # include <iostream>
 
-template <typename T> void swap(T &x, T &y)
+template <typename T> void print(T &x)
 {
-	T	temp;
-	temp = x;
-	x = y;
-	y = temp;
+	std::cout << x << std::endl;
 }
 
-template <typename T> T min(T x, T y)
+template <typename T> void add(T &x)
 {
-	if (x < y)
-		return (x);
-	else if (y < x)
-		return (y);
-	else
-		return (y);
+	x++;
 }
 
-template <typename T> T max(T x, T y)
+template <typename T> void minus(T &x)
 {
-	if (x > y)
-		return (x);
-	else if (y > x)
-		return (y);
-	else
-		return (y);
+	x--;
+}
+
+template <typename T> void iter(T x[], size_t size, void (*f)(T &))
+{
+	for (size_t i = 0; i < size; ++i)
+		f(x[i]);
 }
 
 #endif

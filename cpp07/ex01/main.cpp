@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 15:00:57 by jhii              #+#    #+#             */
-/*   Updated: 2022/10/19 15:50:33 by jhii             ###   ########.fr       */
+/*   Updated: 2022/10/19 16:23:27 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,12 @@
 
 int	main(void)
 {
-	int	a = 2;
-	int	b = 3;
+	int	x[5] = {1, 2, 3, 4, 5};
 
-	::swap(a, b);
-	std::cout << "a = " << a << ", b = " << b << std::endl;
-	std::cout << "min( a, b ) = " << ::min(a, b) << std::endl;
-	std::cout << "max( a, b ) = " << ::max(a, b) << std::endl;
-
-	std::string	c = "chaine1";
-	std::string	d = "chaine2";
-
-	::swap(c, d);
-	std::cout << "c = " << c << ", d = " << d << std::endl;
-	std::cout << "min( c, d ) = " << ::min(c, d) << std::endl;
-	std::cout << "max( c, d ) = " << ::max(c, d) << std::endl;
+	::iter(x, 5, ::print);
+	::iter(x, 5, ::add);
+	::iter(x, 5, ::print);
+	::iter(x, 5, ::minus);
+	::iter(x, 5, ::print);
 	return (0);
 }

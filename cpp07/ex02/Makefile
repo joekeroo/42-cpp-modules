@@ -5,7 +5,7 @@ CXXFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 -pedantic
 RM = rm -f
 
 MAIN = main.cpp
-SRC = 
+SRC =
 OBJ = ${SRC:.cpp=.o}
 
 all: ${NAME}

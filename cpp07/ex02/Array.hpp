@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 16:56:16 by jhii              #+#    #+#             */
-/*   Updated: 2022/10/19 16:56:18 by jhii             ###   ########.fr       */
+/*   Updated: 2022/10/19 18:21:47 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,22 @@
 template <class T> class Array
 {
 	private:
-		T	*_arr;
+		T				*_arr;
+		unsigned int	_size;
+
+		class	OutOfBoundsException: public std::exception
+		{ virtual const char	*what(void) const throw(); };
 
 	public:
-		Array(void): _arr(NULL) {};
-		Array(unsigned int n) { this->_arr = new T[n]; };
+		Array(void);
+		Array(unsigned int);
 		Array(Array const &);
 		~Array(void);
 
 		Array	&operator=(Array const &);
+		T		&operator[](unsigned int);
+
+		unsigned int	size(void) const;
 };
 
 #endif

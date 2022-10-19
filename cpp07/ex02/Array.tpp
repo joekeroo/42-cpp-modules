@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:14:15 by jhii              #+#    #+#             */
-/*   Updated: 2022/10/19 18:27:27 by jhii             ###   ########.fr       */
+/*   Updated: 2022/10/19 19:06:26 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ template <class T> Array<T>::Array(unsigned int n): _size(n)
 {
 	std::cout << GREEN << "Array constructor called" << RESET << std::endl;
 	this->_arr = new T[n];
+	for (unsigned int i = 0; i < n; ++i)
+		this->_arr[i] = 0;
 }
 
 template <class T> Array<T>::Array(void): _arr(NULL), _size(0)
@@ -61,7 +63,7 @@ template <class T> Array<T> &Array<T>::operator=(Array const & ref)
 
 template <class T> T &Array<T>::operator[](unsigned int i)
 {
-	if (i >= this->_size)
+	if (i >= this->_size || i < 0)
 		throw(OutOfBoundsException());
 	return (this->_arr[i]);
 }

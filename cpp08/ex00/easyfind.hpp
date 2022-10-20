@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:25:06 by jhii              #+#    #+#             */
-/*   Updated: 2022/10/19 18:43:37 by jhii             ###   ########.fr       */
+/*   Updated: 2022/10/20 14:19:36 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,59 @@
 # define CYAN		"\033[36m"
 # define WHITE		"\033[37m"
 
+# include <fstream>
 # include <iostream>
 
-template <typename T> void easyfind(T arr, int i)
-{}
+template <class T> class Array
+{
+	private:
+		T		*_arr;
+		size_t	_size;
+
+		class	OutOfBoundsException: public std::exception
+		{ virtual const char	*what(void) const throw(); };
+
+	public:
+		Array(void);
+		Array(size_t);
+		Array(Array const &);
+		~Array(void);
+
+		Array 	&operator=(Array const &);
+		T		&operator[](size_t);
+
+		size_t	getSize(void) const;
+};
+
+template <typename T> void easyfind(Array<T> &arr, T needle)
+{
+	bool	check = false;
+
+	for (size_t i = 0; i < arr.getSize(); i++)
+	{
+		if (arr[i] == needle)
+			check = true;
+	}
+	if (check)
+	{
+		std::cout << GREEN "SUCCESS" RESET;
+		std::cout << CYAN " easyfind " RESET;
+		std::cout << BLUE << needle << RESET;
+		std::cout << CYAN << " : Array[" << RESET;
+		for (size_t i = 0; i < arr.getSize() - 1; i++)
+			std::cout << CYAN << arr[i] << ", " << RESET;
+		std::cout << CYAN << arr[arr.getSize() - 1] << "]" << RESET << std::endl;
+	}
+	else
+	{
+		std::cout << RED "FAILURE" RESET;
+		std::cout << CYAN " easyfind " RESET;
+		std::cout << BLUE << needle << RESET;
+		std::cout << CYAN << " : Array[" << RESET;
+		for (size_t i = 0; i < arr.getSize() - 1; i++)
+			std::cout << CYAN << arr[i] << ", " << RESET;
+		std::cout << CYAN << arr[arr.getSize() - 1] << "]" << RESET << std::endl;
+	}
+}
 
 #endif

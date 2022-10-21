@@ -34,7 +34,7 @@ template <class T> Array<T>::~Array(void)
 
 template <class T> const char *Array<T>::OutOfBoundsException::what(void) const throw()
 {
-	return (YELLOW "Error: Bureaucrat: Grade higher than 1" RESET);
+	return (YELLOW "Error: index out of range" RESET);
 }
 
 template <class T> Array<T> &Array<T>::operator=(Array const & ref)

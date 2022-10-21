@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 13:08:13 by jhii              #+#    #+#             */
-/*   Updated: 2022/10/20 13:33:53 by jhii             ###   ########.fr       */
+/*   Updated: 2022/10/21 20:06:01 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ template <class T> Array<T>::~Array(void)
 
 template <class T> const char *Array<T>::OutOfBoundsException::what(void) const throw()
 {
-	return (YELLOW "Error: Bureaucrat: Grade higher than 1" RESET);
+	return (YELLOW "Error: index out of bounds" RESET);
 }
 
 template <class T> Array<T> &Array<T>::operator=(Array const & ref)

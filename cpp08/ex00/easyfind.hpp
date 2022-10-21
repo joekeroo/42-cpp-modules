@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:25:06 by jhii              #+#    #+#             */
-/*   Updated: 2022/10/20 14:19:36 by jhii             ###   ########.fr       */
+/*   Updated: 2022/10/21 20:06:12 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,8 @@ template <class T> class Array
 
 template <typename T> void easyfind(Array<T> &arr, T needle)
 {
-	bool	check = false;
-
-	for (size_t i = 0; i < arr.getSize(); i++)
-	{
-		if (arr[i] == needle)
-			check = true;
-	}
-	if (check)
+	int	count = std::count(&arr[0], &arr[arr.getSize() - 1], needle);
+	if (count)
 	{
 		std::cout << GREEN "SUCCESS" RESET;
 		std::cout << CYAN " easyfind " RESET;

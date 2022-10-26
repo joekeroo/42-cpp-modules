@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 15:00:55 by jhii              #+#    #+#             */
-/*   Updated: 2022/10/18 12:13:43 by jhii             ###   ########.fr       */
+/*   Updated: 2022/10/26 13:25:50 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,11 +112,19 @@ void	Convert::toInt(void)
 
 	if (str == "nan" || str == "nanf")
 		return ;
-	double temp = static_cast<double>(std::strtod(this->_input, NULL));
-	if (temp < std::numeric_limits<int>::min() || temp > std::numeric_limits<int>::max())
-		return ;
-	this->_intStat = true;
-	this->_intRes = static_cast<int>(std::strtod(this->_input, NULL));
+	if (strlen(this->_input) == 1 && !isdigit(this->_input[0]))
+	{
+		this->_intStat = true;
+		this->_intRes = static_cast<int>(this->_input[0]);
+	}
+	else
+	{
+		double temp = static_cast<double>(std::strtod(this->_input, NULL));
+		if (temp < std::numeric_limits<int>::min() || temp > std::numeric_limits<int>::max())
+			return ;
+		this->_intStat = true;
+		this->_intRes = static_cast<int>(std::strtod(this->_input, NULL));
+	}
 }
 
 void	Convert::toChar(void)
@@ -125,31 +133,57 @@ void	Convert::toChar(void)
 
 	if (str == "nan" || str == "nanf")
 		return ;
-	double temp = static_cast<double>(std::strtod(this->_input, NULL));
-	if (temp < std::numeric_limits<char>::min() || temp > std::numeric_limits<char>::max())
-		return ;
-	if ((temp >= 0 && temp <= 31) || temp == 127)
-		this->_charDisplay = false;
-	this->_charStat = true;
-	this->_charRes = static_cast<char>(std::strtod(this->_input, NULL));
+	if (strlen(this->_input) == 1)
+	{
+		this->_charStat = true;
+		this->_charRes = static_cast<char>(this->_input[0]);
+	}
+	else
+	{
+		double temp = static_cast<double>(std::strtod(this->_input, NULL));
+		if (temp < std::numeric_limits<char>::min() || temp > std::numeric_limits<char>::max())
+			return ;
+		if ((temp >= 0 && temp <= 31) || temp == 127)
+			this->_charDisplay = false;
+		this->_charStat = true;
+		this->_charRes = static_cast<char>(std::strtod(this->_input, NULL));
+	}
 }
 
 void	Convert::toFloat(void)
 {
-	float temp = static_cast<float>(std::strtof(this->_input, NULL));
-	if ((int)temp == temp)
+	if (strlen(this->_input) == 1 && !isdigit(this->_input[0]))
+	{
 		this->_floatDisplay = false;
-	this->_floatStat = true;
-	this->_floatRes = static_cast<float>(std::strtof(this->_input, NULL));
+		this->_floatStat = true;
+		this->_floatRes = static_cast<float>(this->_input[0]);
+	}
+	else
+	{
+		float temp = static_cast<float>(std::strtof(this->_input, NULL));
+		if ((int)temp == temp)
+			this->_floatDisplay = false;
+		this->_floatStat = true;
+		this->_floatRes = static_cast<float>(std::strtof(this->_input, NULL));
+	}
 }
 
 void	Convert::toDouble(void)
 {
-	double temp = static_cast<double>(std::strtod(this->_input, NULL));
-	if ((int)temp == temp)
+	if (strlen(this->_input) == 1 && !isdigit(this->_input[0]))
+	{
 		this->_doubleDisplay = false;
-	this->_doubleStat = true;
-	this->_doubleRes = static_cast<double>(std::strtod(this->_input, NULL));
+		this->_doubleStat = true;
+		this->_doubleRes = static_cast<double>(this->_input[0]);
+	}
+	else
+	{
+		double temp = static_cast<double>(std::strtod(this->_input, NULL));
+		if ((int)temp == temp)
+			this->_doubleDisplay = false;
+		this->_doubleStat = true;
+		this->_doubleRes = static_cast<double>(std::strtod(this->_input, NULL));
+	}
 }
 
 bool	Convert::checkInput(void)
@@ -160,6 +194,8 @@ bool	Convert::checkInput(void)
 
 	if (str == "nan" || str == "nanf" || str == "inf" || str == "inff" ||
 		str == "+inf" || str == "+inff" || str == "-inf" || str == "-inff")
+		return (true);
+	if (strlen(this->_input) == 1)
 		return (true);
 	if (this->_input[0] != '+' || this->_input[0] != '-')
 		i++;

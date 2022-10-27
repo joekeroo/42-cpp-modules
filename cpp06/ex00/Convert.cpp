@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 15:00:55 by jhii              #+#    #+#             */
-/*   Updated: 2022/10/26 13:25:50 by jhii             ###   ########.fr       */
+/*   Updated: 2022/10/27 12:53:45 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ void	Convert::toChar(void)
 
 	if (str == "nan" || str == "nanf")
 		return ;
-	if (strlen(this->_input) == 1)
+	if (strlen(this->_input) == 1 && !isdigit(this->_input[0]))
 	{
 		this->_charStat = true;
 		this->_charRes = static_cast<char>(this->_input[0]);

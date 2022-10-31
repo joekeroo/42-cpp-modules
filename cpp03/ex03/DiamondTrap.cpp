@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 14:57:54 by jhii              #+#    #+#             */
-/*   Updated: 2022/07/21 14:33:48 by jhii             ###   ########.fr       */
+/*   Updated: 2022/10/31 14:02:51 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ DiamondTrap::DiamondTrap(std::string name): ScavTrap(), FragTrap(), _name(name)
 	this->_hPoint = FragTrap::getHealth();
 	this->_ePoint = ScavTrap::getEnergy();
 	this->_atkDamage = FragTrap::getAttack();
-	std::cout << "DiamondTrap " << name << " Spawned" << std::endl;
+	std::cout << MAGENTA << "DiamondTrap " << name << " Spawned" << RESET << std::endl;
 }
 
 DiamondTrap::~DiamondTrap(void)
 {
-	std::cout << "DiamondTrap " << this->_name << " Despawned" << std::endl;
+	std::cout << MAGENTA << "DiamondTrap " << this->_name << " Despawned" << RESET << std::endl;
 }
 
 DiamondTrap	&DiamondTrap::operator=(DiamondTrap const &dp)
@@ -41,9 +41,9 @@ void	DiamondTrap::attack(const std::string &target) { ScavTrap::attack(target); 
 
 void	DiamondTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "DiamondTrap " << this->_name;
-	std::cout << " took " << amount;
-	std::cout << " points of damage!" << std::endl;
+	std::cout << MAGENTA << "DiamondTrap " << this->_name << RESET;
+	std::cout << MAGENTA << " took " << amount << RESET;
+	std::cout << MAGENTA << " points of damage!" << RESET << std::endl;
 	if (amount > (unsigned int)this->_hPoint)
 		this->_hPoint = 0;
 	else
@@ -54,9 +54,9 @@ void	DiamondTrap::beRepaired(unsigned int amount)
 {
 	if (this->_ePoint > 0 && this->_hPoint > 0)
 	{
-		std::cout << "DiamondTrap " << this->_name;
-		std::cout << " repaired " << amount;
-		std::cout << " points of hp!" << std::endl;
+		std::cout << MAGENTA << "DiamondTrap " << this->_name << RESET;
+		std::cout << MAGENTA << " repaired " << amount << RESET;
+		std::cout << MAGENTA << " points of hp!" << RESET << std::endl;
 		if (this->_hPoint + amount < 100)
 			this->_hPoint = this->_hPoint + amount;
 		else
@@ -65,30 +65,30 @@ void	DiamondTrap::beRepaired(unsigned int amount)
 	}
 	else if (this->_hPoint == 0)
 	{
-		std::cout << "DiamondTrap " << this->_name;
-		std::cout << " fails to Heal; has 0 Health" << std::endl;
+		std::cout << MAGENTA << "DiamondTrap " << this->_name << RESET;
+		std::cout << MAGENTA << " fails to Heal; has 0 Health" << RESET << std::endl;
 	}
 	else if (this->_ePoint == 0)
 	{
-		std::cout << "DiamondTrap " << this->_name;
-		std::cout << " fails to Heal; has 0 Energy" << std::endl;
+		std::cout << MAGENTA << "DiamondTrap " << this->_name << RESET;
+		std::cout << MAGENTA << " fails to Heal; has 0 Energy" << RESET << std::endl;
 	}
 }
 
 void	DiamondTrap::guardgate(void)
 {
-	std::cout << "DiamondTrap " << this->_name;
-	std::cout << " is now in Gate Keeper mode!" << std::endl;
+	std::cout << MAGENTA << "DiamondTrap " << this->_name << RESET;
+	std::cout << MAGENTA << " is now in Gate Keeper mode!" << RESET << std::endl;
 }
 
 void	DiamondTrap::highFivesGuys(void)
 {
-	std::cout << "DiamondTrap " << this->_name;
-	std::cout << " requests for a High 5!" << std::endl;
+	std::cout << MAGENTA << "DiamondTrap " << this->_name << RESET;
+	std::cout << MAGENTA << " requests for a High 5!" << RESET << std::endl;
 }
 
 void	DiamondTrap::whoAmI(void)
 {
-	std::cout << "ClapTrap Name: " << ClapTrap::_name << std::endl;
-	std::cout << "DiamondTrap Name: " << this->_name << std::endl;
+	std::cout << MAGENTA << "ClapTrap Name: " << ClapTrap::_name << RESET << std::endl;
+	std::cout << MAGENTA << "DiamondTrap Name: " << this->_name << RESET << std::endl;
 }

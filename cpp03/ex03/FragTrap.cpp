@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 14:06:15 by jhii              #+#    #+#             */
-/*   Updated: 2022/07/21 14:34:03 by jhii             ###   ########.fr       */
+/*   Updated: 2022/10/31 14:01:04 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ FragTrap::FragTrap(void): ClapTrap()
 	this->_hPoint = 100;
 	this->_ePoint = 50;
 	this->_atkDamage = 20;
-	std::cout << "FragTrap " << FragTrap::getName() << " Spawned" << std::endl;
+	std::cout << GREEN << "FragTrap " << FragTrap::getName() << " Spawned" << RESET << std::endl;
 }
 
 FragTrap::FragTrap(FragTrap const &fp) { *this = fp; }
@@ -27,12 +27,12 @@ FragTrap::FragTrap(std::string name): ClapTrap(name)
 	this->_hPoint = 100;
 	this->_ePoint = 100;
 	this->_atkDamage = 30;
-	std::cout << "FragTrap " << name << " Spawned" << std::endl;
+	std::cout << GREEN << "FragTrap " << name << " Spawned" << RESET << std::endl;
 }
 
 FragTrap::~FragTrap(void)
 {
-	std::cout << "FragTrap " << this->_name << " Despawned" << std::endl;
+	std::cout << GREEN << "FragTrap " << this->_name << " Despawned" << RESET << std::endl;
 }
 
 FragTrap	&FragTrap::operator=(FragTrap const &fp)
@@ -48,29 +48,29 @@ void	FragTrap::attack(const std::string &target)
 {
 	if (this->_ePoint > 0 && this->_hPoint > 0)
 	{
-		std::cout << "FragTrap " << this->_name;
-		std::cout << " attacks " << target;
-		std::cout << ", causing " << this->_atkDamage;
-		std::cout << " points of damage!" << std::endl;
+		std::cout << BLUE << "FragTrap " << this->_name << RESET;
+		std::cout << BLUE << " attacks " << target << RESET;
+		std::cout << BLUE << ", causing " << this->_atkDamage << RESET;
+		std::cout << BLUE << " points of damage!" << RESET << std::endl;
 		this->_ePoint = this->_ePoint - 1;
 	}
 	else if (this->_hPoint == 0)
 	{
-		std::cout << "FragTrap " << this->_name;
-		std::cout << " fails to Attack; has 0 Health" << std::endl;
+		std::cout << BLUE << "FragTrap " << this->_name << RESET;
+		std::cout << BLUE << " fails to Attack; has 0 Health" << RESET << std::endl;
 	}
 	else if (this->_ePoint == 0)
 	{
-		std::cout << "FragTrap " << this->_name;
-		std::cout << " fails to Attack; has 0 Energy" << std::endl;
+		std::cout << BLUE << "FragTrap " << this->_name << RESET;
+		std::cout << BLUE << " fails to Attack; has 0 Energy" << RESET << std::endl;
 	}
 }
 
 void	FragTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "FragTrap " << this->_name;
-	std::cout << " took " << amount;
-	std::cout << " points of damage!" << std::endl;
+	std::cout << BLUE << "FragTrap " << this->_name << RESET;
+	std::cout << BLUE << " took " << amount << RESET;
+	std::cout << BLUE << " points of damage!" << RESET << std::endl;
 	if (amount > (unsigned int)this->_hPoint)
 		this->_hPoint = 0;
 	else
@@ -81,9 +81,9 @@ void	FragTrap::beRepaired(unsigned int amount)
 {
 	if (this->_ePoint > 0 && this->_hPoint > 0)
 	{
-		std::cout << "FragTrap " << this->_name;
-		std::cout << " repaired " << amount;
-		std::cout << " points of hp!" << std::endl;
+		std::cout << BLUE << "FragTrap " << this->_name << RESET;
+		std::cout << BLUE << " repaired " << amount << RESET;
+		std::cout << BLUE << " points of hp!" << std::endl << RESET;
 		if (this->_hPoint + amount < 100)
 			this->_hPoint = this->_hPoint + amount;
 		else
@@ -92,18 +92,18 @@ void	FragTrap::beRepaired(unsigned int amount)
 	}
 	else if (this->_hPoint == 0)
 	{
-		std::cout << "FragTrap " << this->_name;
-		std::cout << " fails to Heal; has 0 Health" << std::endl;
+		std::cout << BLUE << "FragTrap " << this->_name << RESET;
+		std::cout << BLUE << " fails to Heal; has 0 Health" << RESET << std::endl;
 	}
 	else if (this->_ePoint == 0)
 	{
-		std::cout << "FragTrap " << this->_name;
-		std::cout << " fails to Heal; has 0 Energy" << std::endl;
+		std::cout << BLUE << "FragTrap " << this->_name << RESET;
+		std::cout << BLUE << " fails to Heal; has 0 Energy" << RESET << std::endl;
 	}
 }
 
 void	FragTrap::highFivesGuys(void)
 {
-	std::cout << "FragTrap " << this->_name;
-	std::cout << " requests for a High 5!" << std::endl;
+	std::cout << BLUE << "FragTrap " << this->_name << RESET;
+	std::cout << BLUE << " requests for a High 5!" << RESET << std::endl;
 }

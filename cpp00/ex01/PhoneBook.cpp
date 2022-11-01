@@ -6,84 +6,85 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:51:49 by jhii              #+#    #+#             */
-/*   Updated: 2022/07/08 13:37:43 by jhii             ###   ########.fr       */
+/*   Updated: 2022/11/01 17:31:37 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "PhoneBook.hpp"
 
-void	PhoneBook::edit_status(int i)
+PhoneBook::PhoneBook(void) { std::cout << GREEN "PhoneBook Constructor Called" RESET << std::endl; }
+PhoneBook::~PhoneBook(void) { std::cout << RED "PhoneBook Destructor Called" RESET << std::endl; }
+
+void	PhoneBook::editStatus(int i)
 {
-	contact[i].status = 1;
+	this->contact[i].setStatus(1);
 }
 
-void	PhoneBook::add_contact(std::string str, int i, int type)
+void	PhoneBook::addContact(std::string str, int i, int type)
 {
 	if (type == 1)
-		contact[i].first_name = str;
+		this->contact[i].setFirstName(str);
 	else if (type == 2)
-		contact[i].last_name = str;
+		this->contact[i].setLastName(str);
 	else if (type == 3)
-		contact[i].nick_name = str;
+		this->contact[i].setNickName(str);
 	else if (type == 4)
-		contact[i].phone_number = str;
+		this->contact[i].setPhoneNumber(str);
 	else if (type == 5)
-		contact[i].darkest_secret = str;
+		this->contact[i].setDarkestSecret(str);
 }
 
-void	PhoneBook::display_entry(int i)
+void	PhoneBook::displayEntry(int i)
 {
-	if (contact[i].status == 1)
+	if (this->contact[i].getStatus() == 1)
 	{
-		std::cout << "First Name: " << contact[i].first_name << std::endl;
-		std::cout << "Last Name: " << contact[i].last_name << std::endl;
-		std::cout << "Nickname: " << contact[i].nick_name << std::endl;
-		std::cout << "Phone Number: " << contact[i].phone_number << std::endl;
-		std::cout << "Darkest Secret: " << contact[i].darkest_secret << std::endl;
+		std::cout << BLUE "First Name: " << this->contact[i].getFirstName() << RESET << std::endl;
+		std::cout << BLUE "Last Name: " << this->contact[i].getLastName() << RESET << std::endl;
+		std::cout << BLUE "Nickname: " << this->contact[i].getNickName() << RESET << std::endl;
+		std::cout << BLUE "Phone Number: " << this->contact[i].getPhoneNumber() << RESET << std::endl;
+		std::cout << BLUE "Darkest Secret: " << this->contact[i].getDarkestSecret() << RESET << std::endl;
 	}
 	else
 	{
-		std::cout << "Phonebook: SEARCH: ";
-		std::cout << std::to_string(i);
-		std::cout << ": index out of bounds";
+		std::cout << YELLOW "Phonebook: SEARCH: " RESET;
+		std::cout << YELLOW << std::to_string(i) << RESET;
+		std::cout << YELLOW ": index out of range" RESET;
 		std::cout << std::endl;
 	}
 }
 
-void	print_value(std::string str)
+std::string	printline(std::string line)
 {
-	int	len;
+	std::string	res;
 
-	len = str.length();
-	if (len < 10)
+	if (line.size() > 10)
 	{
-		for (int i = 0; i < 10 - len; ++i)
-			std::cout << " ";
-		std::cout << str;
+		res = line.std::string::substr(0, 9);
+		res = res + '.';
 	}
 	else
-	{
-		for (int i = 0; i < 9; ++i)
-			std::cout << str[i];
-		std::cout << ".";
-	}
+		res = line;
+	return (res);
 }
 
-void	PhoneBook::display_contacts(void)
+void	PhoneBook::displayContacts(void)
 {
-	std::cout << std::endl;
-	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
+	std::cout << std::endl << BLUE "|" RESET;
+	std::cout << BLUE << std::setw(11) << "Index|" << RESET;
+	std::cout << BLUE << std::setw(11) << "First Name|" << RESET;
+	std::cout << BLUE << std::setw(11) << "Last Name|" << RESET;
+	std::cout << BLUE << std::setw(11) << "Nick Name|" << RESET << std::endl;
 	for (int i = 0; i < 8; ++i)
 	{
-		std::cout << "|         " << std::to_string(i);
-		std::cout << "|";
-		print_value(contact[i].first_name);
-		std::cout << "|";
-		print_value(contact[i].last_name);
-		std::cout << "|";
-		print_value(contact[i].nick_name);
-		std::cout << "|" << std::endl;
+		std::cout << BLUE << "|" << std::setw(10) << i << RESET;
+		std::cout << BLUE "|" RESET;
+		std::cout << BLUE << std::setw(10) << printline(this->contact[i].getFirstName()) << RESET;
+		std::cout << BLUE "|" RESET;
+		std::cout << BLUE << std::setw(10) << printline(this->contact[i].getLastName()) << RESET;
+		std::cout << BLUE "|" RESET;
+		std::cout << BLUE << std::setw(10) << printline(this->contact[i].getNickName()) << RESET;
+		std::cout << BLUE "|" RESET << std::endl;
 	}
 	std::cout << std::endl;
 }

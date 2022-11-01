@@ -6,18 +6,16 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 16:39:32 by jhii              #+#    #+#             */
-/*   Updated: 2022/07/07 17:27:22 by jhii             ###   ########.fr       */
+/*   Updated: 2022/11/01 16:40:04 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_H
 # define PHONEBOOK_H
 
-# include <iostream>
-# include <limits.h>
 # include "PhoneBook.hpp"
 
-void	add_contacts(PhoneBook &phonebook, int i);
-void	search_contacts(PhoneBook &phonebook);
+void	searchContacts(PhoneBook &phonebook);
+void	addContacts(PhoneBook &phonebook, int i);
 
 #endif

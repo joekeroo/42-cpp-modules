@@ -6,7 +6,7 @@
 /*   By: jhii <jhii@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 15:36:08 by jhii              #+#    #+#             */
-/*   Updated: 2022/07/08 16:29:35 by jhii             ###   ########.fr       */
+/*   Updated: 2022/11/01 17:09:38 by jhii             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,22 @@
 
 int	main()
 {
-	int	i;
-	PhoneBook phonebook;
+	int			i;
 	std::string	input;
+	PhoneBook	phonebook;
 
 	i = 0;
 	while (1)
 	{
-		std::cout << ">";
+		std::cout << CYAN ">" BLUE;
 		std::getline(std::cin, input);
+		std::cout << RESET;
 		if (input.compare("EXIT") == 0)
 			break ;
 		else if (input.compare("ADD") == 0)
-			add_contacts(phonebook, i++);
+			addContacts(phonebook, i++);
 		else if (input.compare("SEARCH") == 0)
-			search_contacts(phonebook);
+			searchContacts(phonebook);
 		std::cin.clear();
 	}
 	return (0);
